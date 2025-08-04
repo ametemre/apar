@@ -1,24 +1,24 @@
 pluginManagement {
     repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
         google()
         mavenCentral()
+        gradlePluginPortal()
+        maven { url = uri("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/bootstrap") }
+        maven { url = uri("https://maven.pkg.jetbrains.space/public/p/kotlin-native/maven") }
+        maven { url = uri("https://maven.pkg.jetbrains.space/public/p/kotlinx/kotlinx") }
+        maven { url = uri("https://maven.pkg.jetbrains.space/public/p/icerockdev/plugins") }
     }
 }
 
-rootProject.name = "apar"
-include(":androidApp")
-include(":shared")
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        // Kotlin MPP & Native destekleri:
+        maven { url = uri("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/bootstrap") }
+        maven { url = uri("https://maven.pkg.jetbrains.space/public/p/kotlin/native-dev") }
+        maven { url = uri("https://maven.pkg.jetbrains.space/public/p/kotlin-native/maven") }
+        maven { url = uri("https://maven.pkg.jetbrains.space/public/p/kotlinx/kotlinx") }
+    }
+}
